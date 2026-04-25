@@ -104,11 +104,13 @@ function App() {
         <h2 className="section-title">SKILLS</h2>
 
         <div className="skills-container">
-          <div className="skill-card"><h3>HTML</h3></div>
-          <div className="skill-card"><h3>CSS</h3></div>
-          <div className="skill-card"><h3>JavaScript</h3></div>
-          <div className="skill-card"><h3>React</h3></div>
-          <div className="skill-card"><h3>TypeScript</h3></div>
+                     {["HTML", "CSS", "JavaScript", "React", "TypeScript"].map((skill) => (
+                        <div className="skill-card" key={skill}>
+                           <h3>{skill}</h3>
+                        </div>
+                                             ))}
+          
+
         </div>
       </section>
 
