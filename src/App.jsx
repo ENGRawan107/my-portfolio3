@@ -11,11 +11,18 @@ function App() {
         </div>
 
         <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+
+          {[
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" }
+].map((link) => (
+  <li key={link.label}>
+    <a href={link.href}>{link.label}</a>
+  </li>
+))}
         </ul>
 
         <a href="#contact" className="nav-btn">Contact Me</a>
@@ -83,20 +90,16 @@ function App() {
         </div>
 
         <div className="info-boxes">
-          <div>
-            <span>From</span>
-            <strong>Saudi Arabia</strong>
-          </div>
-
-          <div>
-            <span>Degree</span>
-            <strong>B.Sc. Software Engineering</strong>
-          </div>
-
-          <div>
-            <span>Graduation</span>
-            <strong>2025</strong>
-          </div>
+{[
+  { label: "From", value: "Saudi Arabia" },
+  { label: "Degree", value: "B.Sc. Software Engineering" },
+  { label: "Graduation", value: "2025" }
+].map((info) => (
+  <div key={info.label}>
+    <span>{info.label}</span>
+    <strong>{info.value}</strong>
+  </div>
+))}
         </div>
       </section>
 
@@ -108,9 +111,7 @@ function App() {
                         <div className="skill-card" key={skill}>
                            <h3>{skill}</h3>
                         </div>
-                                             ))}
-          
-
+              ))}
         </div>
       </section>
 
@@ -118,58 +119,47 @@ function App() {
         <h2 className="section-title">PROJECTS</h2>
 
         <div className="projects-container">
-          <div className="project-card">
-            <h3>Frontend System</h3>
-            <p>
-              Angular-based frontend application inspired by NWC digital services.
-            </p>
 
-            <div className="project-buttons">
-              <a href="https://github.com/ENGRawan107/nwc-frontend-assignment" target="_blank">
-                GitHub
-              </a>
-            </div>
-          </div>
+          
+{[
+  {
+    title: "Frontend System",
+    desc: "Angular-based frontend application inspired by NWC digital services.",
+    link: "https://github.com/ENGRawan107/nwc-frontend-assignment",
+    label: "GitHub"
+  },
+  {
+    title: "Smart Clinical Access Dashboard",
+    desc: "A fast-access system helping doctors reach essential tools instantly.",
+    link: "https://engrawan107.github.io/My-first-project/",
+    label: "Live Demo"
+  },
+  {
+    title: "Dynamic Registration System",
+    desc: "A modern form connected to a database for efficient data management.",
+    link: "https://engrawan107.github.io/My-second-project/",
+    label: "Live Demo"
+  },
+  {
+    title: "Portfolio Website v1",
+    desc: "My previous portfolio showcasing design evolution and UI improvements.",
+    link: "https://engrawan107.github.io/my-portfolio1/",
+    label: "Live Demo"
+  }
+].map((project) => (
+  <div className="project-card" key={project.title}>
+    <h3>{project.title}</h3>
+    <p>{project.desc}</p>
 
-          <div className="project-card">
-            <h3>Smart Clinical Access Dashboard</h3>
-            <p>
-              A fast-access system helping doctors reach essential tools instantly.
-            </p>
+    <div className="project-buttons">
+      <a href={project.link} target="_blank">
+        {project.label}
+      </a>
+    </div>
+  </div>
+))}
 
-            <div className="project-buttons">
-              <a href="https://engrawan107.github.io/My-first-project/" target="_blank">
-                Live Demo
-              </a>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <h3>Dynamic Registration System</h3>
-            <p>
-              A modern form connected to a database for efficient data management.
-            </p>
-
-            <div className="project-buttons">
-              <a href="https://engrawan107.github.io/My-second-project/" target="_blank">
-                Live Demo
-              </a>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <h3>Portfolio Website v1</h3>
-            <p>
-              My previous portfolio showcasing design evolution and UI improvements.
-            </p>
-
-            <div className="project-buttons">
-              <a href="https://engrawan107.github.io/my-portfolio1/" target="_blank">
-                Live Demo
-              </a>
-            </div>
-          </div>
-        </div>
+       </div>
       </section>
 
       <section className="contact" id="contact">
